@@ -6,8 +6,6 @@ import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.security.PrivateKey;
-
 public class MainActivity extends AppCompatActivity {
    // Private currentView = R.layout.activity_main;
     @Override
@@ -23,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 TextView text = (TextView)findViewById(R.id.NextText);
-                text.setText("blablabla");
+                FileReaderMechanics test = new FileReaderMechanics();
+                text.setText(test.getFiles()[0].getName());
             }
         });
 
