@@ -12,18 +12,24 @@ public class MainActivity extends AppCompatActivity {
    // Private currentView = R.layout.activity_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Integer temp = 0;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       //  R.layout.activity_main.
         Button button = (Button) findViewById(R.id.NextButton);
         button.setOnClickListener(new View.OnClickListener(){
-
+            Integer Position = 0;
             @Override
             public void onClick(View view){
                 TextView text = (TextView)findViewById(R.id.NextText);
-                text.setText("blablabla");
+                String[] LocationNames = {"CityHall","TLF HQ", "Matt's House"};
+                text.setText(LocationNames[Position]);
+                if (Position >= LocationNames.length-1){
+                    Position = 0;
+                } else {
+                    Position++;
+                }
+
             }
         });
 
