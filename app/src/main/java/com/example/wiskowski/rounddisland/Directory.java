@@ -1,5 +1,6 @@
 package com.example.wiskowski.rounddisland;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,7 +13,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class Directory extends AppCompatActivity {
 
     Context mContext;
 
@@ -20,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.directory);
 
         mContext = this;
 
         testButton();
+        nextPageButton();
     }
 
     private void testButton() {
@@ -36,6 +38,21 @@ public class MainActivity extends AppCompatActivity {
                 TextView text = (TextView)findViewById(R.id.NextText);
                 FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
                 createAllRows();
+            }
+        });
+    }
+
+    /** Code for the button that will open another page of the app
+     */
+    private void nextPageButton() {
+        Button button = (Button) findViewById(R.id.nextPageButton);
+        button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Button button = (Button) view;
+                // change "Page2Activity.class" to the desired class
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
             }
         });
     }

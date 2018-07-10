@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".Directory">
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:label="[Home Display Name]">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
