@@ -2,19 +2,27 @@ package com.example.wiskowski.rounddisland;
 import android.content.Context;
 import android.content.res.AssetManager;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class FileReaderMechanics {
     private String[] files = {}; // used to hold all the files
     private String dir;     // used to hold the directory
     private Context mContext;
+    private AssetManager am;
 
     /** Checks the default directory ("app\src\assets\Directory")
      *  Creates a list of the files in that directory
      */
     public FileReaderMechanics(Context mContext) {
-        AssetManager am = mContext.getAssets();
+        this.mContext = mContext;
+        am = this.mContext.getAssets();
 
         try { files = am.list("Directory"); }
         catch (IOException e) {}
@@ -28,7 +36,8 @@ public class FileReaderMechanics {
     public FileReaderMechanics(Context mContext, String dir) {
         this.dir = dir;
 
-        AssetManager am = mContext.getAssets();
+        this.mContext = mContext;
+        am = this.mContext.getAssets();
 
         try { files = am.list(dir); }
         catch (IOException e) {}
@@ -37,9 +46,36 @@ public class FileReaderMechanics {
     }
 
     /** Returns a list of files
-     *  @return : the list of files as type File
+     *  @return : the list of files as type String[]
      */
     public String[] getFiles() {
         return files;
+    }
+
+    /*  Returns a String containing the value of
+     *  a file at the index provided
+     *  @param fileName : the name of the file to find
+     *  @return : the contents of a file as a String
+     */
+    public ArrayList<String> getTextFileContents(String fileN) throws IOException{
+        ArrayList<String> lines = new ArrayList<String>();
+
+        String fileName = null;
+        for (int line = 0; line < files.length; line++) {
+            if (files[line].equals(fileN + ".txt")){
+                fileName = fileN;
+                break;
+            }
+        }
+
+        InputStream fileContents = am.open("Directory/" + fileName + ".txt");
+        BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileContents));
+        String line;
+
+        while((line = fileReader.readLine()) != null) {
+            lines.add(line);
+        }
+
+        return lines;
     }
 }
