@@ -60,10 +60,11 @@ public class FileReaderMechanics {
     public ArrayList<String> getTextFileContents(String fileN) throws IOException{
         ArrayList<String> lines = new ArrayList<String>();
 
+        // makes sure the specified file is in the "files" list
         String fileName = null;
         for (int line = 0; line < files.length; line++) {
             if (files[line].equals(fileN + ".txt")){
-                fileName = fileN;
+                fileName = fileN; // sets fileName to equal fileN if the specified file was found
                 break;
             }
         }
@@ -73,7 +74,7 @@ public class FileReaderMechanics {
         String line;
 
         while((line = fileReader.readLine()) != null) {
-            lines.add(line);
+            lines.add(line); // appends the current line to lines ArrayList
         }
 
         return lines;
