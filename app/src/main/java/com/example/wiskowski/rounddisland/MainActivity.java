@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     Context mContext;
@@ -19,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         mContext = this;
 
+        testButton();
+    }
+
+    private void testButton() {
         Button button = (Button) findViewById(R.id.NextButton);
         button.setOnClickListener(new View.OnClickListener(){
 
@@ -26,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 TextView text = (TextView)findViewById(R.id.NextText);
                 FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
-                text.setText(fmReader.getFiles()[0]);
+                try {
+                    text.setText(fmReader.getTextFileContents("Format").get(0));
+                } catch (IOException e) {}
             }
         });
-
     }
 }
