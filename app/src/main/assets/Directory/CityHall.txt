@@ -1,2 +1,2 @@
 City hall name
-picture one name
+city_hall
