@@ -62,13 +62,13 @@ public class FileReaderMechanics {
 
         String fileName = null;
         for (int line = 0; line < files.length; line++) {
-            if (files[line].equals(fileN + ".txt")){
+            if (files[line].equals(fileN)){
                 fileName = fileN;
                 break;
             }
         }
 
-        InputStream fileContents = am.open("Directory/" + fileName + ".txt");
+        InputStream fileContents = am.open("Directory/" + fileName);
         BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileContents));
         String line;
 
