@@ -24,26 +24,26 @@
     <Button
         android:id="@+id/StartGameButton"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_marginBottom="100dp"
         android:layout_marginEnd="20dp"
-        android:text="Start a Game"
-        android:textSize="72px"
+        android:text="Let's Play"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ScanCodeButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/ScanCodeButton"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_marginBottom="100dp"
         android:text="Scan a Code"
-        android:textSize="72px"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/StartGameButton"></Button>
+        app:layout_constraintStart_toEndOf="@+id/StartGameButton"/>
 
 </android.support.constraint.ConstraintLayout>
