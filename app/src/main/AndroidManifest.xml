@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Directory">
+            android:name=".Directory"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".HomePage"
+            android:screenOrientation="portrait"
             android:label="[Home Display Name]">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".QRReader"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
 </manifest>
