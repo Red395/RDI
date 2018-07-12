@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,6 +30,7 @@ public class Directory extends AppCompatActivity {
 
         testButton();
         nextPageButton();
+        createAllRows();
     }
 
     private void testButton() {
@@ -78,15 +82,50 @@ public class Directory extends AppCompatActivity {
             TableRow row = new TableRow(this);
             TextView rowText = new TextView(this);
             ImageView rowImg = new ImageView(this);
+            LinearLayout textLayout = new LinearLayout(this);
+            LinearLayout imageTextLayout = new LinearLayout(this);
+            RelativeLayout rowLayout = new RelativeLayout(this);
+            Space textHSpace = new Space(this);
+            Space textVSpace = new Space(this);
+            Button buttonToNextPage = new Button(this);
+
+            textLayout.getLayoutParams();
+
+
             rowText.setText(Name);
             int imgId = rowImg.getContext().getResources().getIdentifier(PictureName, "drawable", rowImg.getContext().getPackageName());
             rowImg.setImageResource(imgId);
-            row.addView(rowText);
-            row.addView(rowImg);
+            textLayout.setOrientation(LinearLayout.VERTICAL);
+            textLayout.addView(textVSpace);
+            textLayout.addView(rowText);
+            imageTextLayout.addView(rowImg);
+            imageTextLayout.addView(textHSpace);
+            imageTextLayout.addView(textLayout);
+            rowLayout.addView(imageTextLayout);
+            rowLayout.addView(buttonToNextPage);
+
+            row.addView(rowLayout);
+
             tbl.addView(row);
+
             rowImg.requestLayout();
             rowImg.getLayoutParams().height = 400;
             rowImg.getLayoutParams().width = 400;
+            textHSpace.getLayoutParams().width=50;
+            textVSpace.getLayoutParams().height=200;
+            buttonToNextPage.getBackground().setAlpha(100);
+            buttonToNextPage.getLayoutParams().height=400;
+            buttonToNextPage.getLayoutParams().width=600;
+
+            buttonToNextPage.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View view){
+                    Button button = (Button) view;
+                    // change "Page2Activity.class" to the desired class
+                   //startActivity(new Intent(getApplicationContext(), HomePage.class));
+                }
+            });
         } catch (Exception e) {   }
     }
 }
