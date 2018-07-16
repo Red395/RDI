@@ -56,7 +56,8 @@ public class Directory extends AppCompatActivity {
             public void onClick(View view){
                 Button button = (Button) view;
                 // change "Page2Activity.class" to the desired class
-                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                //startActivity(new Intent(getApplicationContext(), HomePage.class));
+                finish();
             }
         });
     }
@@ -87,7 +88,7 @@ public class Directory extends AppCompatActivity {
             RelativeLayout rowLayout = new RelativeLayout(this);
             Space textHSpace = new Space(this);
             Space textVSpace = new Space(this);
-            Button buttonToNextPage = new Button(this);
+            final Button buttonToNextPage = new Button(this);
 
             textLayout.getLayoutParams();
 
@@ -115,15 +116,13 @@ public class Directory extends AppCompatActivity {
             textVSpace.getLayoutParams().height=200;
             buttonToNextPage.getBackground().setAlpha(100);
             buttonToNextPage.getLayoutParams().height=400;
-            buttonToNextPage.getLayoutParams().width=600;
+            buttonToNextPage.getLayoutParams().width=800;
 
             buttonToNextPage.setOnClickListener(new View.OnClickListener(){
 
                 @Override
                 public void onClick(View view){
-                    Button button = (Button) view;
-                    // change "Page2Activity.class" to the desired class
-                   //startActivity(new Intent(getApplicationContext(), HomePage.class));
+                    startActivity(new Intent(getApplicationContext(), LmkInformation.class));
                 }
             });
         } catch (Exception e) {   }

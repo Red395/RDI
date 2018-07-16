@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wiskowski.rounddisland">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +17,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Directory"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".HomePage"
-            android:screenOrientation="portrait"
-            android:label="[Home Display Name]">
+            android:label="[Home Display Name]"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,12 +30,10 @@
         </activity>
         <activity
             android:name=".QRReader"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LmkInformation"
+            android:label="@string/title_activity_lmk_information"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-feature android:name="android.hardware.location.gps"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
 
 </manifest>
