@@ -42,6 +42,7 @@ public class Directory extends AppCompatActivity {
         });
     }
 
+
     /** Code for the button that will open another page of the app
      */
     private void nextPageButton() {

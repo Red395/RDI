@@ -57,14 +57,11 @@ public class QRReader extends AppCompatActivity implements View.OnClickListener 
             } else {
                 try {
                     JSONObject obj = new JSONObject(result.getContents());
-                    //TestTextUpdate.setText(obj.getString("name"));
                     updateText = result.getContents();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                     updateText = result.getContents();
-                    //TestTextUpdate.setText(result.getContents());
-                    //Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 }
 
                 TestTextUpdate.setText(updateText);
