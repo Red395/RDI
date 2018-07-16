@@ -9,22 +9,15 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class QRReader extends AppCompatActivity implements View.OnClickListener {
     // view objects
     private Button ScanCodeButton;
-    private TextView TestTextUpdate;
-
-    private String updateText;
 
     // qr reader
     private IntentIntegrator qrScan;
@@ -36,14 +29,11 @@ public class QRReader extends AppCompatActivity implements View.OnClickListener 
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scancode);
+        setContentView(R.layout.homepage);
 
         ScanCodeButton = findViewById(R.id.ScanCodeButton);
-        TestTextUpdate = findViewById(R.id.TestText);
 
         ScanCodeButton.setOnClickListener(this);
-
-        //ImageView qrViewer = findViewById(R.id.qrCode);
 
         qrScan = new IntentIntegrator(this);
     }
@@ -56,15 +46,12 @@ public class QRReader extends AppCompatActivity implements View.OnClickListener 
                 Toast.makeText(this, "No QR Code Found", Toast.LENGTH_LONG).show();
             } else {
                 try {
-                    JSONObject obj = new JSONObject(result.getContents());
-                    updateText = result.getContents();
-
-                } catch (JSONException e) {
+                    String testText = result.getContents();
+                } catch (RuntimeException e) {
                     e.printStackTrace();
-                    updateText = result.getContents();
                 }
 
-                TestTextUpdate.setText(updateText);
+                // Code for calling LmkInformation here
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
