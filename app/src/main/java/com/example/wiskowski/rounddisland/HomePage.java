@@ -32,7 +32,6 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
-    // TODO: 7/12/2018   Change Directory.class to main game page
     private void startGameButton() {
         Button button = findViewById(R.id.StartGameButton);
         button.setOnClickListener(new View.OnClickListener(){

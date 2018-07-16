@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RoundDIsland</string>
+    <string name="title_activity_lmk_information">LmkInformation</string>
 </resources>
