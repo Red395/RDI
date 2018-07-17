@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -32,7 +31,6 @@ public class QRReader extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.homepage);
 
         ScanCodeButton = findViewById(R.id.ScanCodeButton);
-
         ScanCodeButton.setOnClickListener(this);
 
         qrScan = new IntentIntegrator(this);
@@ -46,7 +44,7 @@ public class QRReader extends AppCompatActivity implements View.OnClickListener 
                 Toast.makeText(this, "No QR Code Found", Toast.LENGTH_LONG).show();
             } else {
                 try {
-                    String testText = result.getContents();
+                    String testText = result.getContents(); // tries to convert the result to a string
                 } catch (RuntimeException e) {
                     e.printStackTrace();
                 }
