@@ -29,10 +29,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QRReader"
-            android:label="QR Reader"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name=".LmkInformation"
             android:label="@string/title_activity_lmk_information"
             android:screenOrientation="portrait"></activity>
