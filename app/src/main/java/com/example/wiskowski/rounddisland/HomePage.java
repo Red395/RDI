@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 
+import java.io.IOException;
+
 public class HomePage extends AppCompatActivity {
     private IntentIntegrator qrScan;
     Context mContext;
@@ -60,6 +62,8 @@ public class HomePage extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         QRReader codeRunner = new QRReader(); // calls the QRReader class to deal with the result of the scan
-        codeRunner.onActivityResult(requestCode, resultCode, data, this);
+        try {
+            codeRunner.onActivityResult(requestCode, resultCode, data, this);
+        } catch (IOException e){e.printStackTrace();};
     }
 }
