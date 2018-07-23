@@ -1,6 +1,7 @@
 package com.example.wiskowski.rounddisland;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Picture;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -79,7 +80,7 @@ public class Directory extends AppCompatActivity {
         }
     }
 
-    private void createImageRow(TableLayout tbl,String Name, String PictureName){
+    private void createImageRow(TableLayout tbl, final String Name, final String PictureNames){
         try {
             TableRow row = new TableRow(this);
             TextView rowText = new TextView(this);
@@ -95,7 +96,7 @@ public class Directory extends AppCompatActivity {
 
 
             rowText.setText(Name);
-            int imgId = rowImg.getContext().getResources().getIdentifier(PictureName, "drawable", rowImg.getContext().getPackageName());
+            int imgId = rowImg.getContext().getResources().getIdentifier(PictureNames.split(",",1)[0], "drawable", rowImg.getContext().getPackageName());
             rowImg.setImageResource(imgId);
             textLayout.setOrientation(LinearLayout.VERTICAL);
             textLayout.addView(textVSpace);
@@ -123,7 +124,10 @@ public class Directory extends AppCompatActivity {
 
                 @Override
                 public void onClick(View view){
-                    startActivity(new Intent(getApplicationContext(), LmkInformation.class));
+                    Intent i = new Intent(getApplicationContext(), LmkInformation.class);
+                    i.putExtra("PICTURE_NAME", PictureNames);
+                    i.putExtra("LMK_NAME", Name);
+                    startActivity(i);
                 }
             });
         } catch (Exception e) {   }
