@@ -63,7 +63,8 @@ public class HomePage extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         QRReader codeRunner = new QRReader(); // calls the QRReader class to deal with the result of the scan
         try {
-            codeRunner.onActivityResult(requestCode, resultCode, data, this);
+            Intent i = codeRunner.onActivityResult(requestCode, resultCode, data, this);
+            startActivity(i);
         } catch (IOException e){e.printStackTrace();};
     }
 }
