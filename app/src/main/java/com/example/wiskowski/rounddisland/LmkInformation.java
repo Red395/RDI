@@ -15,18 +15,15 @@ public class LmkInformation extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lmk_information);
 
-        String PictureNames[] = getIntent().getStringExtra("PICTURE_NAME").split(",");
+        String PictureNames[] = getIntent().getStringArrayExtra("PICTURE_NAME");
         TextView HeaderText = findViewById(R.id.textView3);
         HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
 
-        FileReaderMechanics fmReader = new FileReaderMechanics(this, getIntent().getStringExtra("LMK_FILENAME"));
+//        FileReaderMechanics fmReader = new FileReaderMechanics(this, getIntent().getStringExtra("LMK_FILENAME"));
 
         for (String eachPictureName : PictureNames){
             addImgToCar(eachPictureName);
         }
-
-        ImageView Picture = findViewById(R.id.imageView2);
-        Picture.setImageResource(Picture.getContext().getResources().getIdentifier(PictureNames[0], "drawable", Picture.getContext().getPackageName()));
     }
 
     private void addImgToCar (String pictureName){
@@ -36,14 +33,15 @@ public class LmkInformation extends Activity {
 
         LinearLayout lL = new LinearLayout(this);
         ImageView rowImg = new ImageView(this);
-        HorizontalScrollView hs = findViewById((R.id.carousel));
+        LinearLayout hs = findViewById((R.id.carousel));
         lL.setOrientation(LinearLayout.HORIZONTAL);
 
         int imgId = rowImg.getContext().getResources().getIdentifier(pictureName, "drawable", rowImg.getContext().getPackageName());
         rowImg.setImageResource(imgId);
-        //lL.addView(rowImg);
-        //hs.addView(lL);
         hs.addView(rowImg);
 
+      //  rowImg.requestLayout();
+      //  rowImg.getLayoutParams().height = 400;
+      //  rowImg.requestLayout();
     }
 }
