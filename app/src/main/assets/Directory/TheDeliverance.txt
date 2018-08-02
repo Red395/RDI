@@ -1,2 +1,2 @@
 The Deliverance
-deliverance.jpg,deliverance2.jpg,deliverance3.jpg
+deliverance,deliverance2,deliverance3

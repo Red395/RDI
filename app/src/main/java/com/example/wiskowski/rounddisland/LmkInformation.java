@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class LmkInformation extends Activity {
@@ -29,8 +30,20 @@ public class LmkInformation extends Activity {
     }
 
     private void addImgToCar (String pictureName){
-        HorizontalScrollView hs = findViewById((R.id.carousel));
 
+        TextView tx = findViewById(R.id.textView3);
+        tx.setText(tx.getText() +", "+ pictureName);
+
+        LinearLayout lL = new LinearLayout(this);
+        ImageView rowImg = new ImageView(this);
+        HorizontalScrollView hs = findViewById((R.id.carousel));
+        lL.setOrientation(LinearLayout.HORIZONTAL);
+
+        int imgId = rowImg.getContext().getResources().getIdentifier(pictureName, "drawable", rowImg.getContext().getPackageName());
+        rowImg.setImageResource(imgId);
+        //lL.addView(rowImg);
+        //hs.addView(lL);
+        hs.addView(rowImg);
 
     }
 }

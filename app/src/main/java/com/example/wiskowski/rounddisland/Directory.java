@@ -75,12 +75,12 @@ public class Directory extends AppCompatActivity {
         for (String eachFileName : allFileNames) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
-                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1));
+                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","));
             }catch (Exception e){}
         }
     }
 
-    private void createImageRow(TableLayout tbl, final String Name, final String PictureNames){
+    private void createImageRow(TableLayout tbl, final String Name, final String PictureNames[]){
         try {
             TableRow row = new TableRow(this);
             TextView rowText = new TextView(this);
@@ -95,8 +95,8 @@ public class Directory extends AppCompatActivity {
             textLayout.getLayoutParams();
 
 
-            rowText.setText(Name);
-            int imgId = rowImg.getContext().getResources().getIdentifier(PictureNames.split(",",1)[0], "drawable", rowImg.getContext().getPackageName());
+            rowText.setText(Name + "\n|"+PictureNames[0]);
+            int imgId = rowImg.getContext().getResources().getIdentifier(PictureNames[0], "drawable", rowImg.getContext().getPackageName());
             rowImg.setImageResource(imgId);
             textLayout.setOrientation(LinearLayout.VERTICAL);
             textLayout.addView(textVSpace);
