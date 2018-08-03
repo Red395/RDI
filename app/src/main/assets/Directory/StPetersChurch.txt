@@ -1,2 +1,2 @@
 St. Peter's Church
-st_peters_church.jpg,st_peters_church2.jpg, st_peters_church3.jpg
+st-peters_church,st_peters_church2

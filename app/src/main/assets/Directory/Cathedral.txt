@@ -1,2 +1,2 @@
 Cathedral
-catherdral.jpg cathedral2.jpg,catherdral3.jpg
+catherdral,cathedral2,catherdral3

@@ -1,2 +1,2 @@
 Waterville
-waterville.jpg,waterville2.jpg,waterville3.jpg
+waterville,waterville2,waterville3

@@ -1,2 +1,2 @@
 Fort Hamilton
-fort_hamilton.jpg,fort_hamilton2.jpg,fort_hamilton3.jpg
+fort_hamilton,fort_hamilton2,fort_hamilton3

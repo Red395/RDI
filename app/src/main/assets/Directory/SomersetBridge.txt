@@ -1,2 +1,2 @@
 Somerset Bridge
-somerset_bridge.jpg,somerset_bridge2.jpg,somerset_bridge3.jpg
+somerset_bridge,somerset_bridge2,somerset_bridge3

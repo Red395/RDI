@@ -1,2 +1,2 @@
 Fort Scaur
-fort_scaur.jpg,fort_scaur2.jpg,fort_scaur3.jpg
+fort_scaur,fort_scaur2,fort_scaur3

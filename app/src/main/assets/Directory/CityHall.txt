@@ -1,2 +1,2 @@
 City Hall
-city_hall.jpg,city_hall2.jpg,city_hall3.jpg
+city_hall,city_hall2,city_hall3

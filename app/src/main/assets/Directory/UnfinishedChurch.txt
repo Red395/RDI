@@ -1,2 +1,2 @@
 Unfinished Church
-unfinished_church.jpg,unfinished_church2.jpg,unfinished_church3.jpg
+unfinished_church,unfinished_church2,unfinished_church3

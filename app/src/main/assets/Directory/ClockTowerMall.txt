@@ -1,2 +1,2 @@
 Clock Tower Mall
-clock_tower_mall.jpg,clock_tower_mall2.jpg,clock_tower_mall3.jpg
+clock_tower_mall,clock_tower_mall2,clock_tower_mall3

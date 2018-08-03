@@ -1,2 +1,2 @@
 Horseshoe Bay
-horseshoe_bay.jpg,horseshoe_bay2.jpg,horseshoe_bay3.jpg
+horseshoe_bay,horseshoe_bay2,horseshoe_bay3

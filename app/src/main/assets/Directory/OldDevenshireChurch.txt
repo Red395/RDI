@@ -1,2 +1,2 @@
 Old Devenshire Church
-old_devenshire_church.jpg,old_devenshire_church2.jpg,old_devenshire_church3.jpg
+old_devenshire_church,old_devenshire_church2,old_devenshire_church3

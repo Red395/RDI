@@ -1,2 +1,2 @@
 Blue Hole Park
-blue_hole_park.jpg,blue_hole_park2.jpg,blue_hole_park3.jpg
+blue_hole_park,blue_hole_park2,blue_hole_park3

@@ -1,2 +1,2 @@
 Heydon Trust Chapel
-heydon_trust_chapel.jpg,heydon_trust_chapel2.jpg,heydon_trust_chapel3.jpg
+heydon_trust_chapel,heydon_trust_chapel2,heydon_trust_chapel3

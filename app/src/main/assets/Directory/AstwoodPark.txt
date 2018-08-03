@@ -1,2 +1,2 @@
 Astwood Park
-astwood.jpg,astwood2.jpg,astwood3.jpg
+astwood,astwood2,astwood3

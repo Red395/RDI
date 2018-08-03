@@ -1,2 +1,2 @@
 Alexandra Battery
-alexandra_battery.jpg,alexandra_battery2.jpg,alexandra_battery3.jpg
+alexandra_battery,alexandra_battery2,alexandra_battery

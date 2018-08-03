@@ -1,2 +1,2 @@
 St.Davids Battery
-stdavids_battery.jpg,stdavids_battery2.jpg,stdavids_battery3.jpg
+stdavids_battery,stdavids_battery2,stdavids_battery3

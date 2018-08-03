@@ -1,2 +1,2 @@
 Spittal Pond
-spittal_pond.jpg,spittal_pond2.jpg,spittal_pond3.jpg
+spittal_pond,spittal_pond2,spittal_pond3

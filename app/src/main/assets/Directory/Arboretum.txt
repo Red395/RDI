@@ -1,2 +1,2 @@
 Arboretum
-arboretum.jpg,arboretum2.jpg,arboretum3.jpg
+arboretum,arboretum2,arboretum3

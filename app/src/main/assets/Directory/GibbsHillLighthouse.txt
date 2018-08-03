@@ -1,2 +1,2 @@
 Gibbs Hill Lighthouse
-gibbs_hill_lighthouse.jpg,gibbs_hill_lighthouse2.jpg,gibbs_hill_lighthouse3.jpg
+gibbs_hill_lighthouse,gibbs_hill_lighthouse2,gibbs_hill_lighthouse3

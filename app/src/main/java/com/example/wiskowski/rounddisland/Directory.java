@@ -30,41 +30,8 @@ public class Directory extends AppCompatActivity {
 
         mContext = this;
 
-        testButton();
-        nextPageButton();
         createAllRows();
     }
-
-    private void testButton() {
-        Button button = (Button) findViewById(R.id.NextButton);
-        button.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                TextView text = (TextView)findViewById(R.id.NextText);
-                FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
-                createAllRows();
-            }
-        });
-    }
-
-
-    /** Code for the button that will open another page of the app
-     */
-    private void nextPageButton() {
-        Button button = (Button) findViewById(R.id.nextPageButton);
-        button.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Button button = (Button) view;
-                // change "Page2Activity.class" to the desired class
-                //startActivity(new Intent(getApplicationContext(), HomePage.class));
-                finish();
-            }
-        });
-    }
-
 
     private void createAllRows(){
         FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
@@ -91,17 +58,19 @@ public class Directory extends AppCompatActivity {
             RelativeLayout rowLayout = new RelativeLayout(this);
             Space textHSpace = new Space(this);
             Space textVSpace = new Space(this);
+            Space pictIndentSpace = new Space(this);
             final Button buttonToNextPage = new Button(this);
 
             textLayout.getLayoutParams();
 
 
-            rowText.setText(Name + "\n|"+PictureNames[0]);
+            rowText.setText(Name);
             int imgId = rowImg.getContext().getResources().getIdentifier(PictureNames[0], "drawable", rowImg.getContext().getPackageName());
             rowImg.setImageResource(imgId);
             textLayout.setOrientation(LinearLayout.VERTICAL);
             textLayout.addView(textVSpace);
             textLayout.addView(rowText);
+            imageTextLayout.addView(pictIndentSpace);
             imageTextLayout.addView(rowImg);
             imageTextLayout.addView(textHSpace);
             imageTextLayout.addView(textLayout);
@@ -117,9 +86,11 @@ public class Directory extends AppCompatActivity {
             rowImg.getLayoutParams().width = 400;
             textHSpace.getLayoutParams().width=50;
             textVSpace.getLayoutParams().height=200;
-            buttonToNextPage.getBackground().setAlpha(100);
+            pictIndentSpace.getLayoutParams().width=20;
+            buttonToNextPage.getBackground().setAlpha(0);
             buttonToNextPage.getLayoutParams().height=400;
-            buttonToNextPage.getLayoutParams().width=800;
+            buttonToNextPage.getLayoutParams().width=row.getLayoutParams().width;
+            //rowText.getLayoutParams().width=row.getLayoutParams().width-100;
 
             buttonToNextPage.setOnClickListener(new View.OnClickListener(){
 
@@ -127,7 +98,7 @@ public class Directory extends AppCompatActivity {
                 public void onClick(View view){
                     Intent i = new Intent(getApplicationContext(), LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);
-                    i.putExtra("LMK_NAME", FileName/*Name*/);
+                    i.putExtra("LMK_NAME", Name);
                     i.putExtra("LMK_FILENAME", FileName);
                     startActivity(i);
                 }

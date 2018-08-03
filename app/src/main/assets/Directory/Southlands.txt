@@ -1,2 +1,2 @@
 Southlands
-southlands.jpg,southlands2.jpg,southlands3.jpg
+southlands,southlands2,southlands3

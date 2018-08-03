@@ -1,2 +1,2 @@
 Carter House
-carter_house.jpg,carter_house2.jpg,carter_house3.jpg
+carter_house,carter_house2,carter_house3

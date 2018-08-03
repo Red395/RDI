@@ -1,2 +1,2 @@
 Kings Square
-kings_square.jpg,kings_square2.jpg,kings_square3.jpg
+kings_square,kings_square2,kings_square3

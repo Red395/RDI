@@ -1,2 +1,2 @@
 Evans Pond
-evans_pond.jpg,evans_pond2.jpg,evans_pond3.jpg
+evans_pond.,evans_pond2,evans_pond3

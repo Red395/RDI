@@ -1,2 +1,2 @@
 Paget Marsh
-paget_marsh.jpg,paget_marsh2.jpg,paget_marsh3.jpg
+paget_marsh,paget_marsh2,paget_marsh3
