@@ -19,7 +19,7 @@ public class LmkInformation extends Activity {
         TextView HeaderText = findViewById(R.id.textView3);
         HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
 
-//        FileReaderMechanics fmReader = new FileReaderMechanics(this, getIntent().getStringExtra("LMK_FILENAME"));
+        FileReaderMechanics fmReader = new FileReaderMechanics(this, getIntent().getStringExtra("LMK_FILENAME"));
 
         for (String eachPictureName : PictureNames){
             addImgToCar(eachPictureName);
