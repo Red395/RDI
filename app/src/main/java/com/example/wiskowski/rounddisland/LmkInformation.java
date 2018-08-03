@@ -24,9 +24,8 @@ public class LmkInformation extends Activity {
         TextView DescriptionText = findViewById(R.id.Description);
 
         FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
-        String lmkName =getIntent().getStringExtra("LMK_FILENAME");
         try {
-            for (String eachLineOf : fmReader.getTextFileContents("Southlands.txt")){
+            for (String eachLineOf : fmReader.getTextFileContents(getIntent().getStringExtra("LMK_FILENAME"))){
                 DescriptionText.setText(DescriptionText.getText()+ eachLineOf);
             }
         }catch (IOException e){}

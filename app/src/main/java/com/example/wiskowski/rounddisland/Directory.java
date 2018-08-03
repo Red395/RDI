@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Directory extends AppCompatActivity {
@@ -75,12 +76,12 @@ public class Directory extends AppCompatActivity {
         for (String eachFileName : allFileNames) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
-                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","));
+                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName);
             }catch (Exception e){}
         }
     }
 
-    private void createImageRow(TableLayout tbl, final String Name, final String PictureNames[]){
+    private void createImageRow(TableLayout tbl, final String Name, final String PictureNames[], final String FileName){
         try {
             TableRow row = new TableRow(this);
             TextView rowText = new TextView(this);
@@ -126,8 +127,8 @@ public class Directory extends AppCompatActivity {
                 public void onClick(View view){
                     Intent i = new Intent(getApplicationContext(), LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);
-                    i.putExtra("LMK_NAME", Name);
-                    i.putExtra("LMK_FILENAME","StPetersChurch.txt");
+                    i.putExtra("LMK_NAME", FileName/*Name*/);
+                    i.putExtra("LMK_FILENAME", FileName);
                     startActivity(i);
                 }
             });

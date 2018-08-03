@@ -41,6 +41,7 @@ public class QRReader extends AppCompatActivity {
                     Intent i = new Intent(page, LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);
                     i.putExtra("LMK_NAME", Name);
+                    i.putExtra("LMK_FILENAME", returnText);
                     return i;
 
                 } catch (FileNotFoundException e) {
