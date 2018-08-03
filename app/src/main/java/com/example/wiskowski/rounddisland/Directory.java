@@ -127,7 +127,7 @@ public class Directory extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);
                     i.putExtra("LMK_NAME", Name);
-                    i.putExtra("LMK_FILENAME","StPetersCurch.txt");
+                    i.putExtra("LMK_FILENAME","StPetersChurch.txt");
                     startActivity(i);
                 }
             });

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class LmkInformation extends Activity {
 
     @Override
@@ -19,7 +21,15 @@ public class LmkInformation extends Activity {
         TextView HeaderText = findViewById(R.id.textView3);
         HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
 
-        FileReaderMechanics fmReader = new FileReaderMechanics(this, getIntent().getStringExtra("LMK_FILENAME"));
+        TextView DescriptionText = findViewById(R.id.Description);
+
+        FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
+        String lmkName =getIntent().getStringExtra("LMK_FILENAME");
+        try {
+            for (String eachLineOf : fmReader.getTextFileContents("Southlands.txt")){
+                DescriptionText.setText(DescriptionText.getText()+ eachLineOf);
+            }
+        }catch (IOException e){}
 
         for (String eachPictureName : PictureNames){
             addImgToCar(eachPictureName);
@@ -27,9 +37,6 @@ public class LmkInformation extends Activity {
     }
 
     private void addImgToCar (String pictureName){
-
-        TextView tx = findViewById(R.id.textView3);
-        tx.setText(tx.getText() +", "+ pictureName);
 
         LinearLayout lL = new LinearLayout(this);
         ImageView rowImg = new ImageView(this);

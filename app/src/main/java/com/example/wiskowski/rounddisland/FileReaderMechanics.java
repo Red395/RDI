@@ -23,6 +23,7 @@ public class FileReaderMechanics {
     public FileReaderMechanics(Context mContext) {
         this.mContext = mContext;
         am = this.mContext.getAssets();
+        dir = "Directory";
 
         try { files = am.list("Directory"); }
         catch (IOException e) {}
@@ -69,7 +70,7 @@ public class FileReaderMechanics {
             }
         }
 
-        InputStream fileContents = am.open("Directory/" + fileName);
+        InputStream fileContents = am.open(dir +"/" + fileName);
         BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileContents));
         String line;
 
