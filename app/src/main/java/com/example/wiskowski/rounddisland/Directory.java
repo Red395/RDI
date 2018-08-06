@@ -28,13 +28,11 @@ public class Directory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.directory);
 
-        mContext = this;
-
         createAllRows();
     }
 
     private void createAllRows(){
-        FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
+        FileReaderMechanics fmReader = new FileReaderMechanics(this);
         String[] allFileNames = fmReader.getFiles();
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class HuntPage extends AppCompatActivity {
 
-    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,24 +25,27 @@ public class HuntPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.directory);
 
-        mContext = this;
-
-      //  createAllRows();
+       createAllRows();
     }
 
     private void createAllRows(){
-        FileReaderMechanics fmReader = new FileReaderMechanics(mContext);
+        FileReaderMechanics fmReader = new FileReaderMechanics(this);
         String[] allFileNames = fmReader.getFiles();
+        PathGen pg = new PathGen(allFileNames);
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
 
-        for (String eachFileName : allFileNames) {
-            try {
+        //for (String eachFileName : pg.getLocations()) {
+            /*try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
                 createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName);
-            }catch (Exception e){}
-        }
+            }catch (Exception e){}*/
+
+            //TextView tx = findViewById(R.id.textView3);
+            //tx.setText(tx.getText() +"\n"+ eachFileName);
+
+       // }
     }
 
     private void createImageRow(TableLayout tbl, final String Name, final String PictureNames[], final String FileName){

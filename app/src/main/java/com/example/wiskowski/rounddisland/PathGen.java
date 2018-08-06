@@ -1,5 +1,7 @@
 package com.example.wiskowski.rounddisland;
 
+import android.util.Log;
+
 import java.util.Calendar;
 
 public class PathGen {
@@ -8,8 +10,9 @@ public class PathGen {
     private String[] filesLocal;
     private String[] locations;
 
-    public PathGen(Calendar time, String[] files) {
+    public PathGen(String[] files) {
         filesLocal = files.clone();
+        Calendar time = Calendar.getInstance();
 
         int curDayY = time.get(Calendar.DAY_OF_YEAR);
         int curDayW = time.get(Calendar.DAY_OF_WEEK);
@@ -59,6 +62,8 @@ public class PathGen {
     private String[] trimArray(String[] array, String pos) {
         String[] tempArray = new String[array.length - 1];
         int numSkipped = 0;
+
+        Log.d("test", array[0]);
 
         for (int i = 0; i < array.length - numSkipped; i++) {
             if (!(array[i + numSkipped].equals(pos)))
