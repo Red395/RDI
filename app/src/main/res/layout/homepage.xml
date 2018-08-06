@@ -46,4 +46,12 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/StartGameButton"/>
 
+    <Button
+        android:id="@+id/DirectoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Directory"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="114dp" />
+
 </android.support.constraint.ConstraintLayout>

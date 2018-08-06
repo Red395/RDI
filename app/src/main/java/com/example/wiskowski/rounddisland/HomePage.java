@@ -33,6 +33,7 @@ public class HomePage extends AppCompatActivity {
         mContext = this;
         scanCodeButton();
         startGameButton();
+        directoryButton();
     }
 
     private void scanCodeButton() {
@@ -49,6 +50,18 @@ public class HomePage extends AppCompatActivity {
 
     private void startGameButton() {
         Button button = findViewById(R.id.StartGameButton);
+        button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Button button = (Button) view;
+                startActivity(new Intent(getApplicationContext(), HuntPage.class)); // change to main game page
+            }
+        });
+    }
+
+    private void directoryButton(){
+        Button button = findViewById(R.id.DirectoryButton);
         button.setOnClickListener(new View.OnClickListener(){
 
             @Override
