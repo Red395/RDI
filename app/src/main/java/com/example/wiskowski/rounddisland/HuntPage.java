@@ -32,20 +32,16 @@ public class HuntPage extends AppCompatActivity {
     private void createAllRows(){
         FileReaderMechanics fmReader = new FileReaderMechanics(this);
         String[] allFileNames = fmReader.getFiles();
-        //PathGen pg = new PathGen(allFileNames);
+        PathGen pg = new PathGen(Calendar.getInstance(), allFileNames);
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
 
-        for (String eachFileName : /*pg.getLocations()*/ allFileNames) {
+        for (String eachFileName : pg.getLocations()/* allFileNames*/) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
                 createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, true);
             }catch (Exception e){}
-            /*
-            TextView tx = findViewById(R.id.NextText);
-            tx.setText(tx.getText() +"\n"+ eachFileName);*/
-
         }
     }
 
@@ -59,7 +55,6 @@ public class HuntPage extends AppCompatActivity {
             LinearLayout imageTextLayout = new LinearLayout(this);
             LinearLayout checkLayout = new LinearLayout(this);
             Space checkHSpace = new Space(this);
-            Space checkVSpace = new Space(this);
             RelativeLayout rowLayout = new RelativeLayout(this);
             Space textHSpace = new Space(this);
             Space textVSpace = new Space(this);
@@ -69,7 +64,6 @@ public class HuntPage extends AppCompatActivity {
             RelativeLayout pictureLayout = new RelativeLayout(this);
 
             textLayout.getLayoutParams();
-
 
             rowText.setText(Name);
             int imgId = rowImg.getContext().getResources().getIdentifier(PictureNames[0], "drawable", rowImg.getContext().getPackageName());
@@ -81,11 +75,13 @@ public class HuntPage extends AppCompatActivity {
             textLayout.addView(rowText);
             imageTextLayout.addView(pictIndentSpace);
             pictureLayout.addView(rowImg);
+
             checkLayout.addView(checkHSpace);
             checkLayout.addView(checkImg);
-            //pictureLayout.addView(checkImg);
+            if (isFound){
+                pictureLayout.addView(checkLayout);
+            }
             imageTextLayout.addView(pictureLayout);
-           // imageTextLayout.addView(rowImg);
             imageTextLayout.addView(textHSpace);
             imageTextLayout.addView(textLayout);
             rowLayout.addView(imageTextLayout);
@@ -110,6 +106,7 @@ public class HuntPage extends AppCompatActivity {
             rowImg.requestLayout();
             checkImg.getLayoutParams().height=300;
             checkImg.getLayoutParams().width=300;
+            checkHSpace.getLayoutParams().height=20;
             //rowText.getLayoutParams().width=row.getLayoutParams().width-100;
 
             buttonToNextPage.setOnClickListener(new View.OnClickListener(){
