@@ -15,6 +15,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HuntPage extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class HuntPage extends AppCompatActivity {
     private void createAllRows(){
         FileReaderMechanics fmReader = new FileReaderMechanics(this);
         String[] allFileNames = fmReader.getFiles();
-        PathGen pg = new PathGen(allFileNames);
+        PathGen pg = new PathGen(Calendar.getInstance(), allFileNames);
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
