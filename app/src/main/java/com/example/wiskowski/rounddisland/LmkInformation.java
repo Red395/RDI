@@ -1,5 +1,6 @@
 package com.example.wiskowski.rounddisland;
 
+import android.content.res.Resources;
 import android.graphics.Picture;
 import android.os.Bundle;
 import android.app.Activity;
@@ -44,10 +45,13 @@ public class LmkInformation extends Activity {
 
         int imgId = rowImg.getContext().getResources().getIdentifier(pictureName, "drawable", rowImg.getContext().getPackageName());
         rowImg.setImageResource(imgId);
+
         hs.addView(rowImg);
 
-      //  rowImg.requestLayout();
-      //  rowImg.getLayoutParams().height = 400;
-      //  rowImg.requestLayout();
+        rowImg.requestLayout();
+        rowImg.getLayoutParams().width =400;
+      //  rowImg.getLayoutParams().height= ViewGroup.LayoutParams.MATCH_PARENT;
+        rowImg.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().widthPixels;
+        hs.getLayoutParams().height=rowImg.getLayoutParams().height;
     }
 }

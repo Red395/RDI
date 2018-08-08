@@ -80,4 +80,16 @@ public class FileReaderMechanics {
 
         return lines;
     }
+
+    public void SetTimeDirectory(String fileN){
+        // makes sure the specified file is in the "files" list
+        String fileName = null;
+        for (int line = 0; line < files.length; line++) {
+            if (files[line].equals(fileN)){
+                fileName = fileN;
+                break;
+            }
+        }
+
+    }
 }
