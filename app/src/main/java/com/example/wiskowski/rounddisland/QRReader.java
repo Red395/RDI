@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class QRReader extends AppCompatActivity {
 
-    public Intent onActivityResult(int requestCode, int resultCode, Intent data, Context page) throws IOException {
+    public Intent oar(int requestCode, int resultCode, Intent data, Context page) throws IOException {
         String returnText = "No QR Code Found";
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -35,7 +35,8 @@ public class QRReader extends AppCompatActivity {
 
                     // Saves the landmark name and picture names
                     String Name = file.get(0);
-                    String PictureNames = file.get(1);
+                    String PictureNamesS = file.get(1);
+                    String[] PictureNames = PictureNamesS.split(",");
 
                     // Call new LmkInformation class instance with the name and picture addresses
                     Intent i = new Intent(page, LmkInformation.class);

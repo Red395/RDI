@@ -48,6 +48,16 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        QRReader cr = new QRReader(); // calls the QRReader class to deal with the result of the scan
+        try {
+            Intent i = new Intent(cr.oar(requestCode, resultCode, data, mContext));
+            if (i.resolveActivity(getPackageManager()) != null)
+                startActivity(i);
+        } catch (IOException e){e.printStackTrace();}
+    }
+
     private void startGameButton() {
         Button button = findViewById(R.id.StartGameButton);
         button.setOnClickListener(new View.OnClickListener(){
@@ -70,14 +80,5 @@ public class HomePage extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Directory.class)); // change to main game page
             }
         });
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        QRReader codeRunner = new QRReader(); // calls the QRReader class to deal with the result of the scan
-        try {
-            Intent i = codeRunner.onActivityResult(requestCode, resultCode, data, this);
-            startActivity(i);
-        } catch (IOException e){e.printStackTrace();};
     }
 }
