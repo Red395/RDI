@@ -1,10 +1,8 @@
 package com.example.wiskowski.rounddisland;
 
 import android.content.res.Resources;
-import android.graphics.Picture;
 import android.os.Bundle;
 import android.app.Activity;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
