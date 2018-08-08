@@ -27,7 +27,7 @@ public class LmkInformation extends Activity {
         FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
         try {
             for (String eachLineOf : fmReader.getTextFileContents(getIntent().getStringExtra("LMK_FILENAME"))){
-                DescriptionText.setText(DescriptionText.getText()+ eachLineOf);
+                DescriptionText.setText(DescriptionText.getText()+ eachLineOf + "\n");
             }
         }catch (IOException e){}
 
