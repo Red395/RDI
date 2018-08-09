@@ -17,6 +17,8 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import java.io.IOException;
 
 public class HomePage extends AppCompatActivity {
+    // BEFORE UPLOADING DO "gradlew clean" IN TERMINAL
+
     private IntentIntegrator qrScan;
     Context mContext;
 
