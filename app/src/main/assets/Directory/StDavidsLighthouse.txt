@@ -1,2 +1,2 @@
 St.Davids Lighthouse
-st.davids_lighthouse,st.davids_lighthouse2,st.davids_lighthouse3
+st_davids_lighthouse,st_davids_lighthouse2,st_davids_lighthouse3
