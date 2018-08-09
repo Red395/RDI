@@ -3,6 +3,7 @@ package com.example.wiskowski.rounddisland;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Activity;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +33,10 @@ public class LmkInformation extends Activity {
         for (String eachPictureName : PictureNames){
             addImgToCar(eachPictureName);
         }
+
+        HorizontalScrollView cs = findViewById(R.id.cScrollView);
+        cs.smoothScrollTo(cs.getLayoutParams().width-50,0);
+
     }
 
     private void addImgToCar (String pictureName){
