@@ -3,6 +3,7 @@ package com.example.wiskowski.rounddisland;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -11,6 +12,7 @@ import com.google.zxing.integration.android.IntentResult;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QRReader extends AppCompatActivity {
 
@@ -24,6 +26,13 @@ public class QRReader extends AppCompatActivity {
             } else {
                 try {
                     returnText = result.getContents(); // tries to convert the result to a string
+                    String[] tempArray = returnText.split("[ .]");
+                    returnText = "";
+                    for (String word : tempArray) {
+                        returnText += word;
+                    }
+                    returnText += ".txt";
+                    Log.d("QR Result", returnText);
                 } catch (RuntimeException e) {
                     e.printStackTrace();
                 }
