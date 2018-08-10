@@ -3,6 +3,7 @@ package com.example.wiskowski.rounddisland;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,12 +36,19 @@ public class HuntPage extends AppCompatActivity {
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
+        DatabaseConnection dbc = new DatabaseConnection(this, null);
 
-        for (String eachFileName : pg.getLocations()/* allFileNames*/) {
+        for (String eachFileName : pg.getLocations()) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
-                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, true);
-            }catch (Exception e){}
+                String temp = dbc.getVisitDate(FileStringRows.get(0));
+                Boolean isFound = false;
+                if (temp.length()>0){
+                    isFound=true;
+                }
+
+                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, isFound);
+            }catch (Exception e){ Log.d("HuntPage:createAllRows",e.toString());}
         }
     }
 

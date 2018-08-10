@@ -46,7 +46,12 @@ public class QRReader extends AppCompatActivity {
                     String Name = file.get(0);
                     String PictureNamesS = file.get(1);
                     String[] PictureNames = PictureNamesS.split(",");
+                    //Sets the last time visited to now
 
+                   DatabaseConnection dbc = new DatabaseConnection(page, null);
+                 //  try {
+                       dbc.addVisitDate(Name);
+                  // } catch (Exception e){Log.d("QRReader:oar:dbc", e.toString());}
                     // Call new LmkInformation class instance with the name and picture addresses
                     Intent i = new Intent(page, LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);

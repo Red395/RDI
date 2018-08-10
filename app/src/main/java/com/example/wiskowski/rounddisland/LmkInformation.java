@@ -16,14 +16,16 @@ public class LmkInformation extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lmk_information);
-
+        FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
         String PictureNames[] = getIntent().getStringArrayExtra("PICTURE_NAME");
         TextView HeaderText = findViewById(R.id.textView3);
-        HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
+        try {
+            HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
 
+        }catch(Exception e){}
         TextView DescriptionText = findViewById(R.id.Description);
 
-        FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
+
         try {
             for (String eachLineOf : fmReader.getTextFileContents(getIntent().getStringExtra("LMK_FILENAME"))){
                 DescriptionText.setText(DescriptionText.getText()+ eachLineOf + "\n");
