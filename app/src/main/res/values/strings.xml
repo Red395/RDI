@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">RoundDIsland</string>
     <string name="title_activity_lmk_information">LmkInformation</string>
+
+    <string name="how_to_play_intro">Join in on the fun, explore Bermuda\'s most famous and historical landmarks!</string>
+    <string name="how_to_play_info">\n1. Click start below\n
+                                    \n2. Locate the Weekly Hunts\n
+                                    \n3. Find and scan each location\n
+                                    \n4. Head to Bermuda Tourism to claim your prize!</string>
 </resources>

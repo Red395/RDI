@@ -1,8 +1,15 @@
 package com.example.wiskowski.rounddisland;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,8 +31,39 @@ public class HuntPage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.directory);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
 
-       createAllRows();
+        createAllRows();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.buttons, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Landmarks:
+                startActivity(new Intent(getApplicationContext(), Directory.class));
+                return true;
+            case R.id.Home:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                return true;
+            case R.id.Challenges:
+                startActivity(new Intent(getApplicationContext(), HuntPage.class));
+                return true;
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void createAllRows(){

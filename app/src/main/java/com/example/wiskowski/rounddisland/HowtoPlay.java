@@ -1,52 +1,34 @@
 package com.example.wiskowski.rounddisland;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.display.DisplayManager;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-
-import java.io.IOException;
-
-public class HomePage extends AppCompatActivity {
-    // BEFORE UPLOADING DO "gradlew clean" IN TERMINAL
-
-    private IntentIntegrator qrScan;
-    Context mContext;
-
+public class HowtoPlay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // needed to check for permissions
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.howtoplay);
 
         // use drawables
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.sq);
 
-
-
-        // new scanner object
-        qrScan = new IntentIntegrator(this);
-        mContext = this;
-        scanCodeButton();
         startGameButton();
     }
 
@@ -69,43 +51,22 @@ public class HomePage extends AppCompatActivity {
             case R.id.Challenges:
                 startActivity(new Intent(getApplicationContext(), HuntPage.class));
                 return true;
+            case android.R.id.home:
+                finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        QRReader cr = new QRReader(); // calls the QRReader class to deal with the result of the scan
-        try {
-            Intent i = new Intent(cr.oar(requestCode, resultCode, data, mContext));
-            if (i.resolveActivity(getPackageManager()) != null)
-                startActivity(i);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void scanCodeButton() {
-        Button button = findViewById(R.id.ScanCodeButton);
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                // run the qrScanner
-                qrScan.initiateScan();
-            }
-        });
-    }
-
     private void startGameButton() {
-        Button button = findViewById(R.id.StartGameButton);
+        Button button = findViewById(R.id.startButton);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Button button = (Button) view;
-                startActivity(new Intent(getApplicationContext(), HowtoPlay.class)); // change to main game page
+                startActivity(new Intent(getApplicationContext(), HuntPage.class)); // change to main game page
             }
         });
     }

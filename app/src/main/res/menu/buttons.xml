@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:RDI="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/Home"
+        android:title="Home"
+        RDI:showAsAction="never" />
+    <item android:id="@+id/Challenges"
+        android:title="Challenges"
+        RDI:showAsAction="never" />
+    <item android:id="@+id/Landmarks"
+        android:title="Landmarks"
+        RDI:showAsAction="never" />
+    <item android:id="@+id/FAQ"
+        android:title="FAQ"
+        RDI:showAsAction="never" />
+    <item android:id="@+id/Contact"
+        android:title="Contact Us"
+        RDI:showAsAction="never" />
+
+</menu>
