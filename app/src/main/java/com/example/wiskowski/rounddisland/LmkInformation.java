@@ -94,9 +94,8 @@ public class LmkInformation extends AppCompatActivity {
         hs.addView(rowImg);
 
         rowImg.requestLayout();
-        rowImg.getLayoutParams().width =400;
-      //  rowImg.getLayoutParams().height= ViewGroup.LayoutParams.MATCH_PARENT;
         rowImg.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().widthPixels;
+        rowImg.getLayoutParams().height = 800;
         hs.getLayoutParams().height=rowImg.getLayoutParams().height;
     }
 }
