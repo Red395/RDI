@@ -12,7 +12,6 @@ import com.google.zxing.integration.android.IntentResult;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class QRReader extends AppCompatActivity {
 
@@ -46,18 +45,16 @@ public class QRReader extends AppCompatActivity {
                     String Name = file.get(0);
                     String PictureNamesS = file.get(1);
                     String[] PictureNames = PictureNamesS.split(",");
-                    //Sets the last time visited to now
 
+                    //Sets the last time visited to now
                    DatabaseConnection dbc = new DatabaseConnection(page, null);
-                 //  try {
-                       dbc.addVisitDate(Name);
-                  // } catch (Exception e){Log.d("QRReader:oar:dbc", e.toString());}
-                    // Call new LmkInformation class instance with the name and picture addresses
-                    Intent i = new Intent(page, LmkInformation.class);
-                    i.putExtra("PICTURE_NAME", PictureNames);
-                    i.putExtra("LMK_NAME", Name);
-                    i.putExtra("LMK_FILENAME", returnText);
-                    return i;
+                   dbc.addVisitDate(Name);
+
+                   Intent i = new Intent(page, LmkInformation.class);
+                   i.putExtra("PICTURE_NAME", PictureNames);
+                   i.putExtra("LMK_NAME", Name);
+                   i.putExtra("LMK_FILENAME", returnText);
+                   return i;
 
                 } catch (FileNotFoundException e) {
                     Toast.makeText(page, "Invalid QR Code",  Toast.LENGTH_LONG).show();

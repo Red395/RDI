@@ -35,6 +35,8 @@ public class HomePage extends AppCompatActivity {
         scanCodeButton();
         startGameButton();
         directoryButton();
+      //  DatabaseConnection dbc = new DatabaseConnection(this, null);
+       // dbc.ClearDatabase();
     }
 
     private void scanCodeButton() {
@@ -67,6 +69,20 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view){
                 Button button = (Button) view;
                 startActivity(new Intent(getApplicationContext(), HuntPage.class)); // change to main game page
+            }
+        });
+    }
+
+    private void restetDBButton(){
+        Button button = findViewById(R.id.ResetDB);
+        button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Button button = (Button) view;
+                DatabaseConnection dbc = new DatabaseConnection(mContext, null);
+                dbc.ClearDatabase();
+
             }
         });
     }

@@ -14,6 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -41,11 +42,13 @@ public class HuntPage extends AppCompatActivity {
         for (String eachFileName : pg.getLocations()) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
-                String temp = dbc.getVisitDate(FileStringRows.get(0));
+                String date = dbc.getVisitDate(FileStringRows.get(0));
                 Boolean isFound = false;
-                if (temp.length()>0){
-                    isFound=true;
+                Log.d("dateFound=", date);
+                if (PathGen.isInTime(date)){
+                   isFound=true;
                 }
+
 
                 createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, isFound);
             }catch (Exception e){ Log.d("HuntPage:createAllRows",e.toString());}

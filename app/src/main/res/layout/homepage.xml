@@ -54,4 +54,12 @@
         tools:layout_editor_absoluteX="121dp"
         tools:layout_editor_absoluteY="114dp" />
 
+    <Button
+        android:id="@+id/ResetDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ResetDb"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="54dp" />
+
 </android.support.constraint.ConstraintLayout>
