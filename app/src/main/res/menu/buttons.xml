@@ -17,5 +17,7 @@
     <item android:id="@+id/Contact"
         android:title="Contact Us"
         RDI:showAsAction="never" />
-
+    <item android:id="@+id/TermsandConditions"
+        android:title="Terms and Conditions"
+        RDI:showAsAction="never" />
 </menu>

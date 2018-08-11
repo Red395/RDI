@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 
@@ -41,7 +43,9 @@ public class HomePage extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.sq);
 
-
+        ImageView titleImage = (ImageView) findViewById(R.id.imageView3);
+        titleImage.setImageResource(R.drawable.alexandra_battery);
+        titleImage.getLayoutParams().height = Resources.getSystem().getDisplayMetrics().heightPixels / 3;
 
         // new scanner object
         qrScan = new IntentIntegrator(this);
@@ -68,6 +72,15 @@ public class HomePage extends AppCompatActivity {
                 return true;
             case R.id.Challenges:
                 startActivity(new Intent(getApplicationContext(), HuntPage.class));
+                return true;
+            case R.id.Contact:
+                startActivity(new Intent(getApplicationContext(), ContactUs.class));
+                return true;
+            case R.id.FAQ:
+                startActivity(new Intent(getApplicationContext(), FAQ.class));
+                return true;
+            case R.id.TermsandConditions:
+                startActivity(new Intent(getApplicationContext(), TermsandConditions.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

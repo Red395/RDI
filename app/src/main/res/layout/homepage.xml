@@ -12,22 +12,23 @@
         android:id="@+id/IntroDesc"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="36dp"
         android:layout_marginStart="32dp"
         android:text="Join in on the fun, explore Bermuda's most famous and historical landmarks!"
         android:textAlignment="center"
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/StartGameButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/StartGameButton"
         android:layout_width="160dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="104dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/buttonripple"
         android:text="Let's Play"
         android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,12 +40,28 @@
         android:id="@+id/ScanCodeButton"
         android:layout_width="160dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/buttonripple"
         android:text="Scan a Code"
         android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/StartGameButton"/>
+        app:layout_constraintStart_toEndOf="@+id/StartGameButton" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/IntroDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999"
+        app:srcCompat="@drawable/nothing" />
 
 </android.support.constraint.ConstraintLayout>

@@ -58,6 +58,15 @@ public class HuntPage extends AppCompatActivity {
             case R.id.Challenges:
                 startActivity(new Intent(getApplicationContext(), HuntPage.class));
                 return true;
+            case R.id.Contact:
+                startActivity(new Intent(getApplicationContext(), ContactUs.class));
+                return true;
+            case R.id.FAQ:
+                startActivity(new Intent(getApplicationContext(), FAQ.class));
+                return true;
+            case R.id.TermsandConditions:
+                startActivity(new Intent(getApplicationContext(), TermsandConditions.class));
+                return true;
             case android.R.id.home:
                 finish();
                 return true;
