@@ -1,8 +1,14 @@
 package com.example.wiskowski.rounddisland;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -10,13 +16,20 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-public class LmkInformation extends Activity {
+public class LmkInformation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("LMK", "CREATED");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lmk_information);
-        FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
+
         String PictureNames[] = getIntent().getStringArrayExtra("PICTURE_NAME");
         TextView HeaderText = findViewById(R.id.textView3);
         try {
@@ -25,7 +38,7 @@ public class LmkInformation extends Activity {
         }catch(Exception e){}
         TextView DescriptionText = findViewById(R.id.Description);
 
-
+        FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
         try {
             for (String eachLineOf : fmReader.getTextFileContents(getIntent().getStringExtra("LMK_FILENAME"))){
                 DescriptionText.setText(DescriptionText.getText()+ eachLineOf + "\n");
@@ -39,6 +52,33 @@ public class LmkInformation extends Activity {
         HorizontalScrollView cs = findViewById(R.id.cScrollView);
         cs.smoothScrollTo(cs.getLayoutParams().width-50,0);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.buttons, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Landmarks:
+                startActivity(new Intent(getApplicationContext(), Directory.class));
+                return true;
+            case R.id.Home:
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                return true;
+            case R.id.Challenges:
+                startActivity(new Intent(getApplicationContext(), HuntPage.class));
+                return true;
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void addImgToCar (String pictureName){

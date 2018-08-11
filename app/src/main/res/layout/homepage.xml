@@ -5,6 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".HomePage">
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_marginStart="32dp"
         android:text="Join in on the fun, explore Bermuda's most famous and historical landmarks!"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/StartGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
@@ -28,11 +29,11 @@
         android:layout_marginBottom="100dp"
         android:layout_marginEnd="20dp"
         android:text="Let's Play"
-        android:textSize="36sp"
+        android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ScanCodeButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ScanCodeButton"
@@ -40,26 +41,10 @@
         android:layout_height="110dp"
         android:layout_marginBottom="100dp"
         android:text="Scan a Code"
-        android:textSize="36sp"
+        android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/StartGameButton"/>
-
-    <Button
-        android:id="@+id/DirectoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Directory"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="114dp" />
-
-    <Button
-        android:id="@+id/ResetDB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ResetDb"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="54dp" />
 
 </android.support.constraint.ConstraintLayout>
