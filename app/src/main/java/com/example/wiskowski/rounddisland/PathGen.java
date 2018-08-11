@@ -1,8 +1,12 @@
 package com.example.wiskowski.rounddisland;
 
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 
 public class PathGen {
     // should use android Calendar var = Calendar.getInstance() to get the current time
@@ -63,5 +67,34 @@ public class PathGen {
         test.remove(pos);
 
         return test.toArray(new String[test.size()]);
+    }
+
+    public static boolean isInTime(String date){
+        Date transferDate;
+
+        try {
+            transferDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        } catch (Exception e){
+           Log.d("error", e.toString()); return false;}
+        Calendar queryDate = Calendar.getInstance();
+        queryDate.setTime(transferDate);
+        Log.d("timestuff",date);
+        Log.d("timestuff",transferDate.toString());
+        Log.d("timeff", queryDate.get(Calendar.DAY_OF_MONTH)+", "+queryDate.get(Calendar.MONTH)+", "+ queryDate.get(Calendar.YEAR));
+
+        Calendar time = Calendar.getInstance();
+        int curDayY = time.get(Calendar.DAY_OF_YEAR);
+        int curDayW = time.get(Calendar.DAY_OF_WEEK);
+        int curYear = time.get(Calendar.YEAR);
+        boolean isValid;
+
+        curDayW -= 1; // sets the range of days to 0 - 6
+        curDayY -= curDayW; // sets the day to the most recent Sunday
+
+        String curYS = Integer.toString(curYear);
+        Log.d("PG.isInTime","curY="+curYear+", queryYear="+ queryDate.get(Calendar.YEAR));
+        Log.d("PG.isInTime","queryDoY="+queryDate.get(Calendar.DAY_OF_YEAR)+", CurDayY="+curDayY);
+        isValid =  curYear == queryDate.get(Calendar.YEAR) && queryDate.get(Calendar.DAY_OF_YEAR) > curDayY && queryDate.get(Calendar.DAY_OF_YEAR) < curDayY+7;
+        return isValid;
     }
 }

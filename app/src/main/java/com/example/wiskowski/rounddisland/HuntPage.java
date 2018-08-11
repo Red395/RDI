@@ -82,12 +82,21 @@ public class HuntPage extends AppCompatActivity {
         ArrayList<String> FileStringRows= null;
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
+        DatabaseConnection dbc = new DatabaseConnection(this, null);
 
-        for (String eachFileName : pg.getLocations()/* allFileNames*/) {
+        for (String eachFileName : pg.getLocations()) {
             try {
                 FileStringRows = fmReader.getTextFileContents(eachFileName);
-                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, true);
-            }catch (Exception e){}
+                String date = dbc.getVisitDate(FileStringRows.get(0));
+                Boolean isFound = false;
+                Log.d("dateFound=", date);
+                if (PathGen.isInTime(date)){
+                   isFound=true;
+                }
+
+
+                createImageRow(tblLandmarksDisplay, FileStringRows.get(0), FileStringRows.get(1).split(","), eachFileName, isFound);
+            }catch (Exception e){ Log.d("HuntPage:createAllRows",e.toString());}
         }
     }
 

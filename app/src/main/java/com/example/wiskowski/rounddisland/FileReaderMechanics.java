@@ -3,10 +3,20 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 
 public class FileReaderMechanics {
     private String[] files = {}; // used to hold all the files
@@ -76,17 +86,5 @@ public class FileReaderMechanics {
         }
 
         return lines;
-    }
-
-    public void SetTimeDirectory(String fileN){
-        // makes sure the specified file is in the "files" list
-        String fileName = null;
-        for (int line = 0; line < files.length; line++) {
-            if (files[line].equals(fileN)){
-                fileName = fileN;
-                break;
-            }
-        }
-
     }
 }

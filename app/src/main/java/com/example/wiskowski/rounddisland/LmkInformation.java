@@ -32,8 +32,10 @@ public class LmkInformation extends AppCompatActivity {
 
         String PictureNames[] = getIntent().getStringArrayExtra("PICTURE_NAME");
         TextView HeaderText = findViewById(R.id.textView3);
-        HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
+        try {
+            HeaderText.setText(getIntent().getStringExtra("LMK_NAME"));
 
+        }catch(Exception e){}
         TextView DescriptionText = findViewById(R.id.Description);
 
         FileReaderMechanics fmReader = new FileReaderMechanics(this, "Descriptions");
