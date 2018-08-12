@@ -6,11 +6,16 @@
     <string name="how_to_play_info">\n1. Click start below\n
                                     \n2. Locate the Weekly Hunts\n
                                     \n3. Find and scan each location\n
-                                    \n4. Head to Bermuda Tourism to claim your prize!</string>
+                                    \n4. Head to one of our sponsors to claim your prize!</string>
 
     <string name="contact_us_overview">The 2018 TLF students created this app to give people something else to do during their time in Bermuda.
-                                        \n\n[project scope]
-                                        \n\n[tlf info]</string>
+                                        \n\nThe Round D Island application has been designed for the use of tourists and locals to allow them to
+                                        explore and learn about landmarks in Bermuda. Currently the app is only for the use of android devices.
+                                        Individuals will be allowed to download the app from our website which will allow them to explore and learn
+                                        about significant Bermudian landmarks.
+                                        \n\nThe TLF program is an intensive 12-week summer internship where IT college students acquire experience
+                                        in the ICT industry through classroom learning, team projects, fieldwork.
+</string>
     <string name="contact_us_contact_info">Connectech\n41 Ceder Avenue\nHamilton HM02\nBermuda\n\n1.441.704.3677\n\ninfo@tlf.bm</string>
     <string name="terms_and_conditions_info">
 Privacy Policy
@@ -19,13 +24,11 @@ Privacy Policy
 TLF (Technology Leadership Forum) Interns of 2018 built the Round D\' Island app as a Free app. This SERVICE is provided by TLF Interns of 2018 at no cost and \n
 is intended for use as is.
 \n
-This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use
-\n
-our Service.
+This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
 \n
 We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices
 \n
-with regards to your personal information, please contact us a rounddisland@gmail.com
+        with regards to your personal information, please contact us a <b><u><font color = "blue">rounddisland@gmail.com</font></u></b>
 \n
 When you visit our mobile application, and use our services, you trust us with your personal information. We take your privacy very seriously. In this
 \n
@@ -35,7 +38,8 @@ rights you have in relation to it. We hope you take some time to read through it
 that you do not agree with, please discontinue use of our App and our services.
 \n
 \n
-1.	What information do we collect?
+<b>1. What information do we collect?</b>
+\n
 \n
 Information collected through our Apps
 \n
@@ -43,26 +47,31 @@ In short: we may collect information regarding your mobile device, push notifica
 \n
 We do not collect any information. However, we do need access for the following:
 \n
-Mobile Device Access. We will request access or permission to certain features from your mobile device, including your mobile device’s camera. If you wish to \n
+\n
+<b>Mobile Device Access</b>. We will request access or permission to certain features from your mobile device, including your mobile device’s camera. If you wish to \n
 change our access or permissions, you may do so in your device’s settings.
 \n
-Push Notifications. We may request to send you push notifications regarding your account or the mobile application. If you wish to opt-out from receiving
+<b>Push Notifications.</b> We may request to send you push notifications regarding your account or the mobile application. If you wish to opt-out from receiving
 \n
 these types of communications, you may turn them off in your device’s settings.
 \n
-2.	Will your information be shared with anyone?
+\n
+<b>2. Will your information be shared with anyone?</b>
 \n
 We do NOT collect any information from you therefore we will not share any information in any situation.
 \n
-3.	How long do we keep your information?
+\n
+<b>3. How long do we keep your information?</b>
 \n
 We do NOT collect your information; therefore, no information will be stored.
 \n
-4.	What are your privacy rights?
+\n
+<b>4. What are your privacy rights?</b>
 \n
 You may delete this application at any time. You may also remove access to camera and notifications
 \n
-5.	Do we make updates to this policy?
+\n
+<b>5. Do we make updates to this policy?</b>
 \n
 In short: Yes, we will update this policy as necessary to stay compliant with relevant laws.
 \n
@@ -70,7 +79,8 @@ We may update this privacy policy from time to time. The updated version will be
 effective as soon as it is accessible. If we make material changes to this privacy policy, the app will send a notification directly. We encourage you to \n
 review this privacy policy frequently to be informed of how we are protecting your information.
 \n
-Terms &amp; Conditions
+\n
+<b>Terms &amp; Conditions</b>
 \n
 \n
 By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the \n
@@ -114,12 +124,15 @@ the application when offered to you, we may also wish to stop providing the app,
 to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the \n
 app, and (if needed) delete it from your device.
 \n
-Changes to This Terms and Conditions
+\n
+<b>Changes to these Terms and Conditions</b>
+\n
 \n
 We may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any \n
 changes by posting the new Terms and Conditions on this page. These changes are effective immediately after they are posted on this page.
 \n
-Contact Us
 \n
-If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us. rounddisland@gmail.com</string>
+<b>Contact Us</b>
+\n
+If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us. <b><u><font color="blue">rounddisland@gmail.com</font></u></b></string>
 </resources>
