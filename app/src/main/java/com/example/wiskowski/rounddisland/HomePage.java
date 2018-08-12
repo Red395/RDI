@@ -118,7 +118,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Button button = (Button) view;
-                startActivity(new Intent(getApplicationContext(), HowtoPlay.class)); // change to main game page
+                startActivity(new Intent(getApplicationContext(), WinPage.class)); // change to main game page
             }
         });
     }

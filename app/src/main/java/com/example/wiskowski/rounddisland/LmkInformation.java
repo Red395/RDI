@@ -98,6 +98,9 @@ public class LmkInformation extends AppCompatActivity {
         lL.setOrientation(LinearLayout.HORIZONTAL);
 
         int imgId = rowImg.getContext().getResources().getIdentifier(pictureName, "drawable", rowImg.getContext().getPackageName());
+        if (imgId == 0) {
+            Log.d("Image ids", "Got " + pictureName);
+        }
         rowImg.setImageResource(imgId);
 
         hs.addView(rowImg);

@@ -239,6 +239,7 @@ public class HuntPage extends AppCompatActivity {
     }
     private void addTitle(){
         TextView tv = findViewById(R.id.PageTitle);
-        tv.setText("Weekly Hunt");
+        tv.setText("The Weekly Hunt");
+        tv.setTextSize(36);
     }
 }
