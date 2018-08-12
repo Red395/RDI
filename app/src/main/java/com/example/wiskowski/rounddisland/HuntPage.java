@@ -192,7 +192,7 @@ public class HuntPage extends AppCompatActivity {
     }
 
     private void createScanButton(){
-        if(allCompleted){
+        if(!allCompleted){
             qrScan = new IntentIntegrator(this);
             Button scanButton = new Button(this);
             scanButton.setOnClickListener(new View.OnClickListener() {
@@ -213,7 +213,16 @@ public class HuntPage extends AppCompatActivity {
             ScrollView sv = findViewById(R.id.scrollWindow);
             sv.getLayoutParams().height = sv.getHeight()-110;
         } else {
+            Button scanButton = new Button(this);
+            LinearLayout pageLayout = findViewById(R.id.pageLayout);
+            scanButton.setText("Verification Code");
 
+            scanButton.setBackgroundResource(R.drawable.buttonripple);
+            scanButton.setTextSize(36);
+            scanButton.setLayoutParams(new TableLayout.LayoutParams(160,200));
+            pageLayout.addView(scanButton);
+            ScrollView sv = findViewById(R.id.scrollWindow);
+            sv.getLayoutParams().height = sv.getHeight()-110;
         }
 
     }
