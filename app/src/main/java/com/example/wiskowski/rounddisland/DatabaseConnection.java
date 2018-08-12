@@ -43,7 +43,9 @@ public class DatabaseConnection extends  SQLiteOpenHelper{
                 returnDate = c.getString(1);
             }
         }catch (Exception e){
-            Log.d("DBC.getVisitDate",e.toString());}
+            Log.d("DBC.getVisitDate",e.toString());
+        }
+        this.close();
         return returnDate;
     }
 
