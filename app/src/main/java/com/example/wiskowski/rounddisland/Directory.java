@@ -34,7 +34,7 @@ public class Directory extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
-
+        addTitle();
         createAllRows();
     }
 
@@ -145,5 +145,9 @@ public class Directory extends AppCompatActivity {
                 }
             });
         } catch (Exception e) {   }
+    }
+    private void addTitle(){
+        TextView tv = findViewById(R.id.PageTitle);
+        tv.setText("Landmarks");
     }
 }
