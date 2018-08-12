@@ -20,7 +20,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Emailer extends AsyncTask<Void, Void, Void> {
     // USE BELOW CODE TO CALL
-    /*Emailer run = new Emailer(mContext, EmailConfig.EMAIL, "Test", "message");
+    /*Emailer run = new Emailer(lContext, EmailConfig.EMAIL, "Test", "message");
     if (run.getConnected()) {run.execute();}*/
 
     private Context lContext;

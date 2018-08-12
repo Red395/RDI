@@ -88,7 +88,8 @@ public class PathGen {
         curDayW -= 1; // sets the range of days to 0 - 6
         curDayY -= curDayW; // sets the day to the most recent Sunday
 
-        isValid =  curYear == queryDate.get(Calendar.YEAR) && queryDate.get(Calendar.DAY_OF_YEAR) > curDayY && queryDate.get(Calendar.DAY_OF_YEAR) < curDayY+7;
+        isValid = curYear == (queryDate.get(Calendar.YEAR)) && (queryDate.get(Calendar.DAY_OF_YEAR) >= curDayY) && (queryDate.get(Calendar.DAY_OF_YEAR) <= curDayY+6);
+        //isValid = true;
         return isValid;
     }
 

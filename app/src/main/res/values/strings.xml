@@ -6,7 +6,10 @@
     <string name="how_to_play_info">\n1. Click start below\n
                                     \n2. Locate the Weekly Hunts\n
                                     \n3. Find and scan each location\n
-                                    \n4. Head to one of our sponsors to claim your prize!</string>
+                                    \n4. Head to one of our sponsors to claim your prize!
+                                    \n\n\n<font color="red">Rules:\n\nSunday to Sunday to play\n
+                                    \nYou <b>must</b> have Wifi to send the verification code to validate your prize\n
+                                    \nPrizes can be redeemed at our sponsor locations</font></string>
 
     <string name="contact_us_overview">The 2018 TLF students created this app to give people something else to do during their time in Bermuda.
                                         \n\nThe Round D Island application has been designed for the use of tourists and locals to allow them to

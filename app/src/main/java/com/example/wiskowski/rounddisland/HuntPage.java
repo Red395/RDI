@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -206,6 +208,9 @@ public class HuntPage extends AppCompatActivity {
             LinearLayout pageLayout = findViewById(R.id.pageLayout);
             scanButton.setText("Scan a Code");
 
+            DisplayMetrics dm = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(dm);
+
             scanButton.setBackgroundResource(R.drawable.buttonripple);
             scanButton.setTextSize(36);
             scanButton.setLayoutParams(new TableLayout.LayoutParams(160,200));
@@ -214,21 +219,32 @@ public class HuntPage extends AppCompatActivity {
             sv.getLayoutParams().height = sv.getHeight()-110;
         } else {
             DatabaseConnection dbc = new DatabaseConnection(this, null);
-            if(!dbc.hasShown(PathGen.getCurrentWeek())){
-                KeyGen keyGenerator = new KeyGen();
-                dbc.addCode(keyGenerator.getKey(),PathGen.getCurrentWeek());
-                //display congrads
-            }
+
+            DisplayMetrics dm = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(dm);
+
             Button scanButton = new Button(this);
             LinearLayout pageLayout = findViewById(R.id.pageLayout);
             scanButton.setText(dbc.getCode(PathGen.getCurrentWeek()));
 
             scanButton.setBackgroundResource(R.drawable.buttonripple);
-            scanButton.setTextSize(36);
+            scanButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36);
             scanButton.setLayoutParams(new TableLayout.LayoutParams(160,200));
             pageLayout.addView(scanButton);
             ScrollView sv = findViewById(R.id.scrollWindow);
             sv.getLayoutParams().height = sv.getHeight()-110;
+
+            if(!dbc.hasShown(PathGen.getCurrentWeek())){
+                KeyGen keyGenerator = new KeyGen();
+                //dbc.addCode(keyGenerator.getKey(),PathGen.getCurrentWeek());
+                //display congrads
+                scanButton.setText(keyGenerator.getKey());
+
+                Emailer em = new Emailer(this, EmailConfig.EMAIL, keyGenerator.getKey(), keyGenerator.getKey());
+                em.checkConnection();
+                if (em.getConnected()) {em.execute();}
+                startActivity(new Intent(getApplicationContext(), WinPage.class));
+            }
         }
 
     }
