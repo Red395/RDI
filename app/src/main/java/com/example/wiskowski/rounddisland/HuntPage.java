@@ -213,9 +213,15 @@ public class HuntPage extends AppCompatActivity {
             ScrollView sv = findViewById(R.id.scrollWindow);
             sv.getLayoutParams().height = sv.getHeight()-110;
         } else {
+            DatabaseConnection dbc = new DatabaseConnection(this, null);
+            if(!dbc.hasShown(PathGen.getCurrentWeek())){
+                KeyGen keyGenerator = new KeyGen();
+                dbc.addCode(keyGenerator.getKey(),PathGen.getCurrentWeek());
+                //display congrads
+            }
             Button scanButton = new Button(this);
             LinearLayout pageLayout = findViewById(R.id.pageLayout);
-            scanButton.setText("Verification Code");
+            scanButton.setText(dbc.getCode(PathGen.getCurrentWeek()));
 
             scanButton.setBackgroundResource(R.drawable.buttonripple);
             scanButton.setTextSize(36);

@@ -1,2 +1,2 @@
 Spittal Pond
-spittal_pond,spittal_pond2,spittal_pond3
+spittal_pond

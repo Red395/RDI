@@ -1,2 +1,2 @@
 Fort Hamilton
-fort_hamilton,fort_hamilton2,fort_hamilton3
+fort_hamilton,fort_hamilton2
