@@ -211,7 +211,7 @@ public class HuntPage extends AppCompatActivity {
             scanButton.setLayoutParams(new TableLayout.LayoutParams(160,200));
             pageLayout.addView(scanButton);
             ScrollView sv = findViewById(R.id.scrollWindow);
-            sv.getLayoutParams().height = sv.getHeight()-400;
+            sv.getLayoutParams().height = sv.getHeight()-110;
         } else {
 
         }
