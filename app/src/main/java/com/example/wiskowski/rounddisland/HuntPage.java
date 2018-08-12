@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Debug;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -15,17 +16,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class HuntPage extends AppCompatActivity {
-
-
+    private IntentIntegrator qrScan;
+    private boolean allCompleted=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +41,11 @@ public class HuntPage extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.rdihorizontalwhite);
 
+        addTitle();
         createAllRows();
+        createScanButton();
+
+
     }
 
     @Override
@@ -83,6 +92,7 @@ public class HuntPage extends AppCompatActivity {
         TableLayout tblLandmarksDisplay = findViewById(R.id.TblAllLandmarks);
         tblLandmarksDisplay.removeAllViews();
         DatabaseConnection dbc = new DatabaseConnection(this, null);
+        allCompleted=true;
 
         for (String eachFileName : pg.getLocations()) {
             try {
@@ -92,6 +102,8 @@ public class HuntPage extends AppCompatActivity {
                 Log.d("dateFound=", date);
                 if (PathGen.isInTime(date)){
                    isFound=true;
+                } else {
+                    allCompleted=false;
                 }
 
 
@@ -114,7 +126,7 @@ public class HuntPage extends AppCompatActivity {
             Space textHSpace = new Space(this);
             Space textVSpace = new Space(this);
             Space pictIndentSpace = new Space(this);
-            final Button buttonToNextPage = new Button(this);
+          //  final Button buttonToNextPage = new Button(this);
 
             RelativeLayout pictureLayout = new RelativeLayout(this);
 
@@ -140,7 +152,7 @@ public class HuntPage extends AppCompatActivity {
             imageTextLayout.addView(textHSpace);
             imageTextLayout.addView(textLayout);
             rowLayout.addView(imageTextLayout);
-            rowLayout.addView(buttonToNextPage);
+           // rowLayout.addView(buttonToNextPage);
 
             row.addView(rowLayout);
 
@@ -153,9 +165,9 @@ public class HuntPage extends AppCompatActivity {
             textVSpace.getLayoutParams().height=200;
             checkHSpace.getLayoutParams().width=50;
             pictIndentSpace.getLayoutParams().width=20;
-            buttonToNextPage.getBackground().setAlpha(0);
-            buttonToNextPage.getLayoutParams().height=400;
-            buttonToNextPage.getLayoutParams().width=row.getLayoutParams().width;
+           // buttonToNextPage.getBackground().setAlpha(0);
+           // buttonToNextPage.getLayoutParams().height=400;
+           // buttonToNextPage.getLayoutParams().width=row.getLayoutParams().width;
 
             checkImg.requestLayout();
             rowImg.requestLayout();
@@ -164,17 +176,60 @@ public class HuntPage extends AppCompatActivity {
             checkHSpace.getLayoutParams().height=20;
             //rowText.getLayoutParams().width=row.getLayoutParams().width-100;
 
-            buttonToNextPage.setOnClickListener(new View.OnClickListener(){
+          /*  buttonToNextPage.setOnClickListener(new View.OnClickListener(){
 
                 @Override
                 public void onClick(View view){
                     Intent i = new Intent(getApplicationContext(), LmkInformation.class);
                     i.putExtra("PICTURE_NAME", PictureNames);
+
                     i.putExtra("LMK_NAME", Name);
                     i.putExtra("LMK_FILENAME", FileName);
                     startActivity(i);
                 }
-            });
+            });*/
         } catch (Exception e) {   }
+    }
+
+    private void createScanButton(){
+        if(allCompleted){
+            qrScan = new IntentIntegrator(this);
+            Button scanButton = new Button(this);
+            scanButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    // run the qrScanner
+                    qrScan.initiateScan();
+                }
+            });
+            LinearLayout pageLayout = findViewById(R.id.pageLayout);
+            scanButton.setText("Scan a Code");
+
+            scanButton.setBackgroundResource(R.drawable.buttonripple);
+            scanButton.setTextSize(36);
+            scanButton.setLayoutParams(new TableLayout.LayoutParams(160,200));
+            pageLayout.addView(scanButton);
+            ScrollView sv = findViewById(R.id.scrollWindow);
+            sv.getLayoutParams().height = sv.getHeight()-400;
+        } else {
+
+        }
+
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        QRReader cr = new QRReader(); // calls the QRReader class to deal with the result of the scan
+        try {
+            Intent i = new Intent(cr.oar(requestCode, resultCode, data, this));
+            if (i.resolveActivity(getPackageManager()) != null)
+                startActivity(i);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void addTitle(){
+        TextView tv = findViewById(R.id.PageTitle);
+        tv.setText("Weekly Hunt");
     }
 }
