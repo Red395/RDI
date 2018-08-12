@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
         android:background="@color/mainColour"
         android:backgroundTint="@color/mainColour">
 
-        <LinearLayout
+
+        <RelativeLayout
+            android:id="@+id/rlwinpage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textColor="@color/white"
+                android:layout_height="fill_parent"
                 android:gravity="center"
-                android:text="@string/winpage_info" />
+                android:text="@string/winpage_info"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
-        </LinearLayout>
-
-        <pl.droidsonroids.gif.GifTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/fireworks"
-            android:visibility="invisible"
-            />
+        </RelativeLayout>
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
