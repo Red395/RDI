@@ -19,7 +19,6 @@ public class WinPage extends AppCompatActivity {
     private GifTextView gif;
 
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.winpage);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
