@@ -240,7 +240,7 @@ public class HuntPage extends AppCompatActivity {
                 //dbc.addCode(keyGenerator.getKey(),PathGen.getCurrentWeek());
                 //display congrads
                 scanButton.setText(keyGenerator.getKey());
-
+                dbc.addCode(keyGenerator.getKey(), PathGen.getCurrentWeek());
                 Emailer em = new Emailer(this, EmailConfig.EMAIL, keyGenerator.getKey(), keyGenerator.getKey());
                 em.checkConnection();
                 if (em.getConnected()) {em.execute();}
