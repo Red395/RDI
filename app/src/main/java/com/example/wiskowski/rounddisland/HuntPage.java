@@ -233,7 +233,6 @@ public class HuntPage extends AppCompatActivity {
             pageLayout.addView(scanButton);
             ScrollView sv = findViewById(R.id.scrollWindow);
             sv.getLayoutParams().height = sv.getHeight()-110;
-
             if(!dbc.hasShown(PathGen.getCurrentWeek())){
                 KeyGen keyGenerator = new KeyGen();
                 //dbc.addCode(keyGenerator.getKey(),PathGen.getCurrentWeek());
@@ -244,6 +243,8 @@ public class HuntPage extends AppCompatActivity {
                 em.checkConnection();
                 if (em.getConnected()) {em.execute();}
                 startActivity(new Intent(getApplicationContext(), WinPage.class));
+            } else {
+                scanButton.setText("working?"+dbc.getCode(PathGen.getCurrentWeek()));
             }
         }
 

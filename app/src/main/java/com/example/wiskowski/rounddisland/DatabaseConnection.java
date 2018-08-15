@@ -56,16 +56,25 @@ public class DatabaseConnection extends  SQLiteOpenHelper{
     }
     public void addCode(String code, String chalDate){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT OR REPLACE INTO tbl_Completed (ChalDate, WeekCode, HasBeenShown) VALUES ('"+chalDate+"''"+code+"', 0)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS tbl_Completed (ChalDate STRING PRIMARY KEY, WeekCode STRING, HasBeenShown INTEGER)");
+        db.execSQL("INSERT OR REPLACE INTO tbl_Completed (ChalDate, WeekCode, HasBeenShown) VALUES ('"+chalDate+"','"+code+"', 0)");
     }
     public boolean hasShown(String chalDate){
+        Log.d("XXXXXXXXXXXX", "XXXXXXXXXXXX");
         int hasBeenShown = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         try {
+            //Cursor c = db.rawQuery("SELECT * FROM  tbl_Completed", null);
             Cursor c = db.rawQuery("SELECT * FROM  tbl_Completed WHERE ChalDate='"+chalDate+"'", null);
+
+            Log.d("sql test1", "");
             while (c.moveToNext()) {
-                hasBeenShown = c.getInt(3);
+               // hasBeenShown = c.getInt(2);
+                Log.d("sql test1", ""+c.getString(1)+c.getInt(2));
             }
+             db.rawQuery("UPDATE tbl_Completed SET HasBeenShown = 1 WHERE HasBeenShown = 0",null);
+            //c.moveToLast();
+           // c.close();
         }catch (Exception e){
             Log.d("DBC.hasShown",e.toString());}
 
@@ -75,7 +84,8 @@ public class DatabaseConnection extends  SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         String challangeCode="";
         try {
-            Cursor c = db.rawQuery("SELECT * FROM  tbl_Completed WHERE ChalDate='"+chalDate+"'", null);
+            Cursor c =  db.rawQuery("SELECT * FROM tbl_Completed",null);
+            Log.d("testing", "count:"+ c.getCount());
             while (c.moveToNext()) {
                 challangeCode = c.getString(2);
             }
